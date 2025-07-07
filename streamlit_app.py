@@ -17,13 +17,13 @@ if not claude_api_key:
 
 # Configurações iniciais
 st.set_page_config(
-    page_title=" CoJudi",
+    page_title=" TheusGPT",
     page_icon="🏛️",
     layout="wide",
 )
 
 st.markdown(
-    "<h1 style='text-align:center; margin-top:0'>CoJudi</h1>",
+    "<h1 style='text-align:center; margin-top:0'>TheusGPT</h1>",
     unsafe_allow_html=True
 )
 
@@ -240,7 +240,7 @@ if "mensagens_chat" not in st.session_state:
 
 # Mensagem inicial automática
 if not st.session_state.mensagens_chat:
-    mensagem_inicial = """Olá, Lukas! 👋  
+    mensagem_inicial = """Olá, amigo(a)! 👋  
 Como posso te ajudar hoje?
 
 Fique à vontade para perguntar o que quiser."""
@@ -308,7 +308,7 @@ def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
 
     system_prompt = (
-        "Seu nome é CoJudi, você é um chatbot Co-Piloto. "
+        "Seu nome é TheusGPT, você é um chatbot Co-Piloto. "
         "Responda SÓ com base no contexto abaixo. "
         'Dê respostas técnicas e embasadas em conceitos jurídicos'
         "Nunca use as expressões “De acordo com …”.\n\n"
@@ -358,7 +358,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**CoJudi:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
+                    st.markdown(f"**TheusGPT:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
     else:
         with st.chat_message("assistant"):
-            st.markdown("*CoJudi:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown("*TheusGPT:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
